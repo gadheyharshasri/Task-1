@@ -1,0 +1,76 @@
+# Process – Network Reconnaissance using Nmap
+
+## Step 1: Install Nmap
+
+Downloaded and installed Nmap from the official website. During installation, Npcap support was enabled for packet capturing and network analysis.
+
+## Step 2: Identify Local Network Range
+
+Opened Command Prompt and used the following command to check the local IP address and subnet:
+
+```bash id="3axq7v"
+ipconfig
+Based on the IPv4 address, the local network range was identified as:
+
+text id="s0yqne"
+192.168.0.0/24
+
+## Step 3: Perform TCP SYN Scan
+
+Executed a TCP SYN scan using Nmap to identify active hosts and open ports within the network.
+
+ash id="3md7ux"
+nmap -sS 192.168.0.0/24
+
+## Step 4: Analyze Scan Results
+
+Observed the scan output and identified:
+
+* Active devices on the network
+* Open TCP ports
+* Running network services such as HTTP, HTTPS, SMB, and MySQL
+
+## Step 5: Save Scan Results
+
+Saved the scan results into a text file for documentation and reporting purposes.
+
+bash id="e10m4d"
+nmap -sS 192.168.0.0/24 -oN scan_results.txt
+
+An XML report was also generated.
+
+bash id="epr8l9"
+nmap -sS 192.168.0.0/24 -oX scan.xml
+
+## Step 6: Packet Capture using Wireshark
+
+Opened Wireshark and selected the active network interface. Applied the following filter to observe TCP SYN packets generated during the scan:
+
+text id="7f4tqi"
+tcp.flags.syn == 1 && tcp.flags.ack == 0
+
+The packet capture showed SYN requests and responses between devices on the local network.
+
+## Step 7: Research Open Ports and Services
+
+Researched the identified ports and associated services to understand their functionality and possible security implications.
+
+## Step 8: Identify Security Risks
+
+Analyzed open services and identified possible risks such as:
+
+* SMB exposure
+* Open database ports
+* Web service accessibility
+* Windows networking vulnerabilities
+
+## Outcome
+
+The task provided practical understanding of:
+
+* Network reconnaissance
+* Host discovery
+* Port scanning
+* Service identification
+* Packet analysis
+* Basic network security assessment
