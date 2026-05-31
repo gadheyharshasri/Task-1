@@ -1,0 +1,26 @@
+# Commands Used – Network Reconnaissance Task
+
+## 1. Check Local IP Configuration
+ipconfig
+
+## 2. Perform TCP SYN Scan
+nmap -sS 192.168.0.0/24
+
+## 3. Save Scan Results as Text File
+nmap -sS 192.168.0.0/24 -oN scan_results.txt
+
+## 4. Save Scan Results as XML File
+nmap -sS 192.168.0.0/24 -oX scan.xml
+
+## 5. Open Saved Results in Notepad
+notepad scan_results.txt
+
+## 6. Wireshark Filter for SYN Packets
+tcp.flags.syn == 1 && tcp.flags.ack == 0
+
+## 7. Optional – Basic Host Discovery Scan
+nmap -sn 192.168.0.0/24
+
+## 8. Optional – Service Version Detection
+nmap -sV 192.168.0.0/24
+
